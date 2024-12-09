@@ -318,6 +318,7 @@ def exercise_7():
 # Dictionaries is only for python, similar to JSON
 # JSON accepts only string values   
 import json
+import csv
 def exercise_8():
     book = {}
     book['Evgenios'] = {
@@ -332,7 +333,7 @@ def exercise_8():
     }
     
     s = json.dumps(book) # this will dump the dictionary and create a json, practically converts everything to string s means string     
-    with open("C://Users//eugen//Desktop//General Python Exercises\Data Science Roadmap for Beginners//book.txt", "w") as f: # to write the json file in a txt file 
+    with open("C://Users//eugen//Desktop//Repo//General Python Exercises\Data Science Roadmap for Beginners//book.txt", "w") as f: # to write the json file in a txt file 
         f.write(s)
         
     # f = open("C://Users//eugen//Desktop//General Python Exercises\Data Science Roadmap for Beginners//book.txt", "r") # to read a json from a txt file
@@ -342,7 +343,41 @@ def exercise_8():
     
     for person in book:
         print(book[person])
+        
+    # Exercise 1
+    word_stats = {} # initialises the dictionary
+    with open("C://Users//eugen//Desktop//Repo//General Python Exercises\Data Science Roadmap for Beginners//poem.txt", "r") as f:
+        for line in f:
+            words = line.split(' ') # separate the lines into list of words, ererytime a space character is found
+            #print(words)
+            for word in words:
+                if word in word_stats:
+                    word_stats[word] +=1 # increments by 1
+                else:
+                    word_stats[word] = 1 # if not existed, initial count of 1
     
+    print(word_stats)
+    
+    word_occurances = list(word_stats.values())
+    print(word_occurances)
+    max_count = max(word_occurances)
+    print("Max occurances of any word is:", max_count)
+    
+    print("Words with max occurances are: ")
+    for word, count in word_stats.items():
+        if count==max_count:
+            print(word)
+            
+    # Exercise 2
+    with open("C://Users//eugen//Desktop//Repo//General Python Exercises\Data Science Roadmap for Beginners//stocks.csv", 'r') as file:
+        csvFile = csv.reader(file)
+        for row in csvFile:
+            print(row)
+            
+    with open("C://Users//eugen//Desktop//Repo//General Python Exercises\Data Science Roadmap for Beginners//Output.csv", 'w') as file:
+        writer = csv.writer(file)
+        writer.writerow(["Company Name", "PE Ratio", "PB Ratio"])
+        
 if __name__ == "__main__":
     #exercise_1()
     #exercise_2()
