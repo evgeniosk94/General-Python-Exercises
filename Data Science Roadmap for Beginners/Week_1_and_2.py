@@ -312,7 +312,36 @@ def exercise_7():
     radius = float(radius)       
     area, diameter, circumference = circle_calc(radius)   
     print(f"area: {round(area,2)}, circumference: {round(circumference,2)}, diameter: {round(diameter,2)}")
-   
+
+# Exercise 8: JSON file
+# JSON is a way of storing data, recognised by all programming lagnuages, python, java, C,C++ etc.
+# Dictionaries is only for python, similar to JSON
+# JSON accepts only string values   
+import json
+def exercise_8():
+    book = {}
+    book['Evgenios'] = {
+        'name': 'Evgenios',
+        'address': '5 Caxton Street, UK',
+        'phone': 7748702606
+    }
+    book['Tom'] = {
+        'name': 'Tom',
+        'address': '1 red street, NY',
+        'phone': 98989898
+    }
+    
+    s = json.dumps(book) # this will dump the dictionary and create a json, practically converts everything to string s means string     
+    with open("C://Users//eugen//Desktop//General Python Exercises\Data Science Roadmap for Beginners//book.txt", "w") as f: # to write the json file in a txt file 
+        f.write(s)
+        
+    # f = open("C://Users//eugen//Desktop//General Python Exercises\Data Science Roadmap for Beginners//book.txt", "r") # to read a json from a txt file
+    # s = f.read()
+    # book = json.loads(s) # This is loading strings    
+    # print(book['Evgenios']['phone'])
+    
+    for person in book:
+        print(book[person])
     
 if __name__ == "__main__":
     #exercise_1()
@@ -321,4 +350,5 @@ if __name__ == "__main__":
     #exercise_4()
     #exercise_5()
     #exercise_6()
-    exercise_7()     
+    #exercise_7()     
+    exercise_8()
