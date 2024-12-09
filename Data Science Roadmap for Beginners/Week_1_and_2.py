@@ -216,7 +216,9 @@ def exercise_6():
     rectangle_area = calculate_area(lenght,width,"rectangle")
     print("area of rectangle is:", rectangle_area)
     
-# Exercise 7: DICTIONARIES & TUPLES, also known as maps, hashtables, associate arrays
+# Exercise 7: DICTIONARIES & TUPLES 
+
+# Also known as maps, hashtables, associate arrays
 # In dictionaries you retrieve values with keys, oposite to lists where you retrieve with index
 # All values in the tuples have different meaning, different type  (heterogeneous)
 def exercise_7():
@@ -314,6 +316,7 @@ def exercise_7():
     print(f"area: {round(area,2)}, circumference: {round(circumference,2)}, diameter: {round(diameter,2)}")
 
 # Exercise 8: JSON file
+
 # JSON is a way of storing data, recognised by all programming lagnuages, python, java, C,C++ etc.
 # Dictionaries is only for python, similar to JSON
 # JSON accepts only string values   
@@ -378,6 +381,37 @@ def exercise_8():
         writer = csv.writer(file)
         writer.writerow(["Company Name", "PE Ratio", "PB Ratio"])
         
+# Exercise 9: Exceptions
+def exercise_9():
+    x = input("Enter number 1: ")
+    y = input("Enter number 2: ")
+    try: # line thats will possibly generate an exemption we put them inside exception blocks
+        z = int(x) / int(y)
+    except ZeroDivisionError as e:
+        print("Division by zero exception")
+        z = None
+    print("Division is: ", z)
+    
+    
+    x = input("Enter number 1: ")
+    y = input("Enter number 2: ")
+    try: # line thats will possibly generate an exemption we put them inside exception blocks
+        z = x / int(y)
+    except Exception as e:
+        print("Exception type", type(e).__name__)
+        z = None
+    print("Division is: ", z)
+    
+    
+    x = input("Enter number 1: ")
+    y = input("Enter number 2: ")
+    try: # line thats will possibly generate an exemption we put them inside exception blocks
+        z = x / int(y)
+    except TypeError as e:
+        print("Type error exception")
+        z = None
+    print("Division is: ", z)
+
 if __name__ == "__main__":
     #exercise_1()
     #exercise_2()
@@ -386,4 +420,5 @@ if __name__ == "__main__":
     #exercise_5()
     #exercise_6()
     #exercise_7()     
-    exercise_8()
+    #exercise_8()
+    exercise_9()
