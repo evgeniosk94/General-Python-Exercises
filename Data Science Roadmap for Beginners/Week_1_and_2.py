@@ -381,7 +381,7 @@ def exercise_8():
         writer = csv.writer(file)
         writer.writerow(["Company Name", "PE Ratio", "PB Ratio"])
         
-# Exercise 9: Exceptions
+# Exercise 9: EXCEPTIONS
 def exercise_9():
     x = input("Enter number 1: ")
     y = input("Enter number 2: ")
@@ -412,6 +412,57 @@ def exercise_9():
         z = None
     print("Division is: ", z)
 
+# Exercise 10: CLASSES & OBJECTS
+# Properties & methods 
+# Object is a specific instance of a class
+def exercise_10():
+    class Human:
+        def __init__(self, name, occupation): # 1st step - Initialises the PROPERTIES of the class, definition of properties of the class
+            self.name = name
+            self.occupation = occupation
+        
+        def do_work(self): # 2nd step - define the METHODS - method 1
+            if self.occupation == "tennis player":
+                print(self.name, "plays tennis")
+            elif self.occupation == "actor":
+                print(self.name, "shoots a film")
+                
+        def speaks(self): # Define the METHODS - methos 2
+            print(self.name, "says how are you?")
+        
+    tom = Human("Tom Cruise", "actor") # Create instance of the class - Instnace 1
+    tom.do_work()
+    tom.speaks()
+    
+    maria = Human("Maria Sharapova", "tennis player") # Instance 2
+    maria.do_work()
+    maria.speaks()
+    
+    # Exercise 1
+    class Employee:
+        def __init__(self, id, name):
+            self.id = id
+            self.name = name
+            
+        def display(self):
+            print(f"ID: {self.id} \nName: {self.name}")
+            
+    emp = Employee(1,"coder")
+    emp.display()
+    
+    del emp.id
+    try:
+        print(emp.id)
+    except AttributeError as e:
+        print("Attribute error exception, 'emp.id' is not defined")
+        
+    del emp.name
+    try:
+        print(emp.name)
+    except AttributeError as e:
+        print("Attribute error exeption, 'emp.name' is not defined")
+            
+            
 if __name__ == "__main__":
     #exercise_1()
     #exercise_2()
@@ -421,4 +472,5 @@ if __name__ == "__main__":
     #exercise_6()
     #exercise_7()     
     #exercise_8()
-    exercise_9()
+    #exercise_9()
+    exercise_10()
