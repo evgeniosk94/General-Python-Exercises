@@ -124,7 +124,7 @@ def exercise_5():
     
     # b)
     total = 0
-    for i in range(len(exp)):   # this is equal to len(5)
+    for i in range(len(exp)):   # this is equal to len(5), range() starts from zero by default
         print("Month:", i+1, "Expense:", exp[i])    # i+1 as we want month to start from 1
         total = total + exp[i]
     print("Total expense is:", total)
@@ -145,7 +145,7 @@ def exercise_5():
             
     # e)
     for i in range(1,6):
-        if i%2==0:
+        if i %2==0:
             continue # if the number is even, continue the For-Loop, so that will skip the print section
         print(i*i)        
         
@@ -466,9 +466,9 @@ def exercise_10():
 if __name__ == "__main__":
     #exercise_1()
     #exercise_2()
-    exercise_3()
+    #exercise_3()
     #exercise_4()
-    #exercise_5()
+    exercise_5()
     #exercise_6()
     #exercise_7()     
     #exercise_8()
