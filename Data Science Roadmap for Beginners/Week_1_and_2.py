@@ -464,7 +464,7 @@ def exercise_10():
             
             
 if __name__ == "__main__":
-    #exercise_1()
+    exercise_1()
     #exercise_2()
     #exercise_3()
     #exercise_4()
@@ -473,4 +473,4 @@ if __name__ == "__main__":
     #exercise_7()     
     #exercise_8()
     #exercise_9()
-    exercise_10()
+    #exercise_10()
