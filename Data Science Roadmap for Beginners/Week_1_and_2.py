@@ -5,15 +5,15 @@ def exercise_1():
     def multiplication(number1,number2):
         product = number1 * number2
         if product <= 1000:
+            print(f"The multiplication result is: {product}")
             return product
         else:
+            print(f"The multiplication result is greater than 1000, so the result is: {number1 + number2}")
             return number1 + number2
-        
-    result = multiplication(20,30)
-    print("The result is", result)  
-
-    result = multiplication(40,30)
-    print("The result is", result)      
+    
+    number1 = 30
+    number2 = 30    
+    result = multiplication(number1,number2)      
 
 # Exercise 2: STRINGS
 def exercise_2():
@@ -336,7 +336,7 @@ def exercise_8():
     }
     
     s = json.dumps(book) # this will dump the dictionary and create a json, practically converts everything to string s means string     
-    with open("C://Users//eugen//Desktop//Repo//General Python Exercises\Data Science Roadmap for Beginners//book.txt", "w") as f: # to write the json file in a txt file 
+    with open("C://Users//eugen//Desktop//Repo//General Python Exercises\\Data Science Roadmap for Beginners//book.txt", "w") as f: # to write the json file in a txt file 
         f.write(s)
         
     # f = open("C://Users//eugen//Desktop//General Python Exercises\Data Science Roadmap for Beginners//book.txt", "r") # to read a json from a txt file
@@ -349,7 +349,7 @@ def exercise_8():
         
     # Exercise 1
     word_stats = {} # initialises the dictionary
-    with open("C://Users//eugen//Desktop//Repo//General Python Exercises\Data Science Roadmap for Beginners//poem.txt", "r") as f:
+    with open("C://Users//eugen//Desktop//Repo//General Python Exercises\\Data Science Roadmap for Beginners//poem.txt", "r") as f:
         for line in f:
             words = line.split(' ') # separate the lines into list of words, ererytime a space character is found
             #print(words)
@@ -372,12 +372,12 @@ def exercise_8():
             print(word)
             
     # Exercise 2
-    with open("C://Users//eugen//Desktop//Repo//General Python Exercises\Data Science Roadmap for Beginners//stocks.csv", 'r') as file:
+    with open("C://Users//eugen//Desktop//Repo//General Python Exercises\\Data Science Roadmap for Beginners//stocks.csv", 'r') as file:
         csvFile = csv.reader(file)
         for row in csvFile:
             print(row)
             
-    with open("C://Users//eugen//Desktop//Repo//General Python Exercises\Data Science Roadmap for Beginners//Output.csv", 'w') as file:
+    with open("C://Users//eugen//Desktop//Repo//General Python Exercises\\Data Science Roadmap for Beginners//Output.csv", 'w') as file:
         writer = csv.writer(file)
         writer.writerow(["Company Name", "PE Ratio", "PB Ratio"])
         
@@ -464,7 +464,7 @@ def exercise_10():
             
             
 if __name__ == "__main__":
-    #exercise_1()
+    exercise_1()
     #exercise_2()
     #exercise_3()
     #exercise_4()
@@ -473,4 +473,4 @@ if __name__ == "__main__":
     #exercise_7()     
     #exercise_8()
     #exercise_9()
-    exercise_10()
+    #xercise_10()
