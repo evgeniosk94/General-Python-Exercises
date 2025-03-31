@@ -398,7 +398,7 @@ def exercise_9():
     try: # line thats will possibly generate an exemption we put them inside exception blocks
         z = x / int(y)
     except Exception as e:
-        print("Exception type", type(e).__name__)
+        print("Exception type:", type(e).__name__)
         z = None
     print("Division is: ", z)
     
@@ -427,10 +427,10 @@ def exercise_10():
             elif self.occupation == "actor":
                 print(self.name, "shoots a film")
                 
-        def speaks(self): # Define the METHODS - methos 2
+        def speaks(self): # Define the METHODS - method 2
             print(self.name, "says how are you?")
         
-    tom = Human("Tom Cruise", "actor") # Create instance of the class - Instnace 1
+    tom = Human("Tom Cruise", "actor") # Create instance of the class - Instance 1
     tom.do_work()
     tom.speaks()
     
@@ -468,9 +468,9 @@ if __name__ == "__main__":
     #exercise_2()
     #exercise_3()
     #exercise_4()
-    exercise_5()
+    #exercise_5()
     #exercise_6()
     #exercise_7()     
     #exercise_8()
     #exercise_9()
-    #xercise_10()
+    exercise_10()
