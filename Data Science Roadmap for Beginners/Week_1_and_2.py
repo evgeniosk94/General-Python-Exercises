@@ -52,10 +52,10 @@ def exercise_3():
     print("Did I spent exactly 2000 dollars in any month?", 2000 in exp)
     
     exp.append(1980)
-    print("Expenses at the end of June is:", exp)
+    print("Expenses at the end of June is:", exp[-1])
     
     exp[3] = exp[3]-200
-    print("Expense after 200 refund in April is:", exp)
+    print("Expenses after 200 refund in April is:", exp[3])
     
     # b)
     heros=['spider man','thor','hulk','iron man','captain america']
@@ -465,8 +465,8 @@ def exercise_10():
             
 if __name__ == "__main__":
     #exercise_1()
-    exercise_2()
-    #exercise_3()
+    #exercise_2()
+    exercise_3()
     #exercise_4()
     #exercise_5()
     #exercise_6()
