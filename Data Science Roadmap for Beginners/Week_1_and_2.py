@@ -22,14 +22,14 @@ def exercise_2():
     city = "London"
     country = "United Kingdom"
     address = street + ', ' + city + ', ' + country
-    print("Address using + operator:", address)
+    print("Address using '+' operator:", address)
     address = f'\n{street},\n {city},\n {country}'
-    print("Address using f-string:", address)
+    print("Address using 'f-string':", address)
 
     # b)
     s ="Earth revolves around the sun"
-    print(s[6:14])
-    print(s[-3:])
+    print("print using 'slice operator':", s[6:14])
+    print("print using 'negative index':", s[-3:])
 
     # c)
     num_fruits = 10
@@ -464,8 +464,8 @@ def exercise_10():
             
             
 if __name__ == "__main__":
-    exercise_1()
-    #exercise_2()
+    #exercise_1()
+    exercise_2()
     #exercise_3()
     #exercise_4()
     #exercise_5()
