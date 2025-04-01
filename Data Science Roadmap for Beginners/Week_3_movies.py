@@ -56,8 +56,8 @@ print(df.describe())
 df["age"] = df["release_year"].apply(lambda x: 2025 - x) # on release_year column I will apply some kind of transformation, lambda x a quickly way of writing a python function, sort of for loop for each row for release_year column
 print(df.head())
 
-#df["profit"] = df.apply(lambda x: x["revenue"] - x["budget"], axis=1) # this is when applying a transforamtion using two columns of the dataframe
-df["profit"] = df["revenue"] - df["budget"]
+df["profit"] = df.apply(lambda x: x["revenue"] - x["budget"], axis=1) # this is when applying a transforamtion using two columns of the dataframe. Avoid this approach unless you have a more complex row-wise operation that cannot be done with simple column operation. apply processes rows one by one, slower for large datasets
+#df["profit"] = df["revenue"] - df["budget"] # this approach is faster, applies operation to all rows at once in optimised way
 
 print(df.head())
 
@@ -67,5 +67,22 @@ print(df.head())
 # print(df.loc[["Pather Panchali", "Avatar"]]) # loc is location on labaled based index 
 
 print(df.iloc[0:2]) # iloc is integer based index location
-
 df.reset_index(inplace=True)
+
+df_movies = pd.read_excel("movies_db.xlsx", "movies")
+print(df_movies)
+
+def standardize_currency(curr):
+        if curr == "$$" or curr == "Dollars":
+                return "USD"
+        return curr
+
+df_financials = pd.read_excel("movies_db.xlsx", "financials", converters = {
+        'currency': standardize_currency 
+})
+print(df_financials)
+
+df_merged = pd.merge(df_movies, df_financials, on="movie_id")
+print(df_merged)
+
+df_merged.to_excel("movies_merged.xlsx", sheet_name="merged", index=False)
