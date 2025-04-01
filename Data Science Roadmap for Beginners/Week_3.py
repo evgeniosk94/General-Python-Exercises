@@ -40,3 +40,43 @@ print(a1*a2)
 print(a1/a2)
 
 # Basic array operations 
+a = np.array([[1,2],[3,4],[5,6]])
+print(a.ndim) # .ndim method returns the dimension of the array 
+print(a.dtype) # .dtype method returns the datatype of the elements 
+a1 = np.array([[1,2],[3,4],[5,6]], dtype=float)
+a2 = np.array([[1,2],[3,4],[5,6]], dtype=float)
+print(a2.itemsize)
+print(a1.itemsize)
+print(a2.size) # .size method returns the amount of elements of the numpy array 
+print(a2.shape) # .shape method returns the size of the array, rows and columns 
+
+np.zeros((3,4)) # .zeros method creates an array with zero values and 3,4 shape
+np.ones((3,4)) # similar but with ones
+np.arange(1,5) # will create an array from 1 to 4, so 1,2,3,4
+np.arange(1,5,2) # stisl will create an array from 1 to 4 with a step of 2, so it will be 1,3
+np.linspace(1,5,10) # this will create an array from 1 to 4 with 10 elements in total, linearly spaced
+a.reshape(2,3) # .reshape method will reshape the array to 2 rows and 3 columns 
+
+print(a1.sum(axis=0)) # axis 0 is the columns 
+print(a1.sum(axis=1)) # axis 1 is the rows
+
+# Slicing and indexing - same as python lists 
+a = np.array([[6,7,8], [1,2,3], [9,3,2]])
+for row in a:
+        print(row)
+
+for cell in a.flat: # .flat method flattens the array and returns a single dimension array 
+        print(cell)
+        
+a = np.arange(6).reshape(3,2)
+b = np.arange(6,12).reshape(3,2)
+
+for row in a,b:
+        print(row)
+
+print(np.vstack((a,b))) # stacks the two arrays vertically
+print(np.hstack((a,b))) # stacks the two arrays horizontally
+
+a = np.arange(12).reshape(3,4)
+for cell in a.flatten(): # .flat and .flatten() the same method 
+        print(cell)
