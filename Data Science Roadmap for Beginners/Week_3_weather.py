@@ -37,4 +37,24 @@ print(df.interpolate(inplace=True)) # this will fill the NaN values with the int
 
 # dropna(how="all") will all will drop only the rows at which all columns have NaN values, how="any" will drop any row that has at least one NaN value 
 
+# print(df)
+
+df = pd.read_csv("weather_data_2.csv")
 print(df)
+
+df.replace([-99999,-88888],np.nan, inplace=True) # You can pass onto a list of values to replace as well
+print(df)
+
+df.replace({                                    # Similar to .fillna({}) pass a dictioanry with keys as columns names 
+        'temperature': -99999,
+        'windspeed': [-99999,-88888],
+        'event': 'no event'
+}, np.nan, inplace=True
+           )
+print(df)
+
+df.replace({                    # For all the columns replace these values with NaN, easier 
+        -99999: np.nan,
+        -888888: np.nan,
+        'no event': 'Sunny'
+},inplace=True)
