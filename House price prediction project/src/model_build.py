@@ -14,10 +14,8 @@ from sklearn.linear_model import LinearRegression, Lasso, Ridge
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 
-
-
 # Load the cleaned dataset
-df = pd.read_csv('../data/cleaned_data.csv')
+df = pd.read_csv('C:/Users/eugen/Desktop/Repo/General Python Exercises/House price prediction project/data/cleaned_data.csv')
 
 # Transform location column into 0,1, drop the first to avoid dummy variable trap (perfect multicollinearity in linear models)
 dummies = pd.get_dummies(df.location, drop_first=True)
