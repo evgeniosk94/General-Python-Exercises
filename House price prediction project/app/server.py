@@ -18,18 +18,10 @@ def predict_home_price():
         bedroom = int(request.form['bedroom'])
         bath = int(request.form['bath'])
         
-        # if request.method == 'POST':
-        #         total_sqft = float(request.form['total_sqft'])
-        #         location = request.form['location']
-        #         bedroom = int(request.form['bedroom'])
-        #         bath = int(request.form['bath'])
-        # else:  # For GET request (so you can paste URL directly)
-        #         total_sqft = float(request.args.get('total_sqft'))
-        #         location = request.args.get('location')
-        #         bedroom = int(request.args.get('bedroom'))
-        #         bath = int(request.args.get('bath'))
-        
         estimated_price = util.get_estimated_price(location, total_sqft, bedroom, bath)
+        
+        if estimated_price == "Invalid Location":
+                return jsonify({'error': "Invalid location given."}), 400 # Return HTTp 400 error
         
         # Convert to Python float (if it's NumPy type)
         if hasattr(estimated_price, 'item'):
@@ -38,13 +30,8 @@ def predict_home_price():
         response = jsonify({
                 'estimated_price': estimated_price
          })
-        
-        # response = jsonify({
-        #         'estimated_price': util.get_estimated_price(location,total_sqft,bedroom,bath)
-        # })
 
         response.headers.add('Access-Control-Allow-Origin', '*')
-        
         return response
 
         

@@ -12,7 +12,7 @@ def main():
         print()
         print("Calculating linear regression model...start")
         print()
-        X, y, data_columns = load_and_preprocess('../data/cleaned_data.csv')
+        X, y, locations = load_and_preprocess('../data/cleaned_data.csv')
         lr_score, lr_cross_val_score, lr_cross_val_avg_score = get_linear_regression_model(X,y)
         print("Linear regression score:", lr_score)
         print("Linear regression cross val score:", lr_cross_val_score)
@@ -34,7 +34,7 @@ def main():
                 pickle.dump(best_model,f)
                 
         columns = {
-                'data_columns': [x.lower() for x in data_columns]
+                'locations': locations
                 }
         with open("../models/columns.json","w") as f:
                 json.dump(columns,f)

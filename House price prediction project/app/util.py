@@ -4,11 +4,13 @@ import pandas as pd
 import numpy as np
 
 __locations = None
-__data_columns = None
 __model = None
 
 
 def get_estimated_price(location,sqft,bedroom,bath):
+        if location not in __locations:
+                return "Invalid Location"
+        
         X = pd.DataFrame({
         'location': [location],  
         'total_sqft': [sqft],
@@ -21,13 +23,11 @@ def get_location_names():
         return __locations
 
 def load_saved_artifacts():                     # This function will load the saved columns and the pickle model                   
-        print("loading saved artifacts...start")
-        global __data_columns                   # Global variables, will store the artifacts in these global variables
-        global __locations
+        print("loading saved artifacts...start")                 
+        global __locations                      # Global variables, will store the artifacts in these global variables
         
         with open("./artifacts/columns.json", 'r') as f:
-                __data_columns = json.load(f)['data_columns'] # From the columns json file we get the data_columns key which will return all the data columns 
-                __locations = __data_columns[3:]              # Index slicing to get element from the list starting from 3
+                __locations = json.load(f)['locations']       # From the columns json file we get the data_columns key which will return all the data columns 
         
         global __model
         with open("./artifacts/house_prices_model.pickle", "rb") as f:  # Binary model so rb

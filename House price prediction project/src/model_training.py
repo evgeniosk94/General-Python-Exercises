@@ -18,6 +18,12 @@ def get_linear_regression_model(X,y):
                 ('cat', OneHotEncoder(drop='first', handle_unknown='ignore'), categorical_cols)
         ])
         
+        '''
+            handle_unknown='ignore': ensures that if an unknown location is passed later (during prediction), 
+            it wont crash — the unknown will just get zeros in the one-hot encoding step.
+            
+        '''
+        
         # Create pipeline with preprocessing + LinearRegression
         lr_pipeline = Pipeline([
                 ('preprocessor', preprocessor),
@@ -46,7 +52,7 @@ def get_model_params():
     numerical_features = ['total_sqft','bath','bedroom']    
     
     # Define transformers
-    categorical_transformer = OneHotEncoder(drop='first',handle_unknown='ignore')
+    categorical_transformer = OneHotEncoder(drop='first')
     numerical_transformers = StandardScaler()
 
     # Combine into preprocessor
