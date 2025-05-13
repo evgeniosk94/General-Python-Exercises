@@ -40,5 +40,5 @@ if __name__ == '__main__':
         print(get_location_names())
         print(get_estimated_price('Indira Nagar',1000,3,3))
         print(get_estimated_price('Indira Nagar',1000,2,2))
-        print(get_estimated_price('other',1000,2,2)) # other location
-        print(get_estimated_price('other',1000,2,2)) # other location
+        print(get_estimated_price('Other',1000,2,2)) # other location
+        print(get_estimated_price('Other',1000,2,2)) # other location
